@@ -13,6 +13,30 @@ const MOCK_DATA = [
     description: "Exploring CSS variables, Tailwind, and the evolution of UI/UX design.",
     url: "#",
     urlToImage: "https://images.unsplash.com/photo-1547658719-da2b51069d6e?w=400"
+  },
+  {
+    title: "Artificial Intelligence in 2026",
+    description: "How machine learning models are reshaping the software development lifecycle.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400"
+  },
+  {
+    title: "Mastering Cybersecurity Basics",
+    description: "Essential tips for developers to secure their applications against common threats.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400"
+  },
+  {
+    title: "Sustainable Tech Trends",
+    description: "Why green energy and efficient code are becoming top priorities for major tech firms.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=400"
+  },
+  {
+    title: "Blockchain for Supply Chains",
+    description: "A practical look at how decentralized ledgers help in identifying fake products.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1621416895569-26154d5d3ba7?w=400"
   }
 ];
 
