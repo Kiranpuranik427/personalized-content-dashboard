@@ -4,39 +4,63 @@ const { useState, useEffect } = React;
 const MOCK_DATA = [
   {
     title: "Understanding React Development",
-    description: "A deep dive into how components, state, and props drive modern web applications.",
+    description: "A deep dive into how components, state, and props drive modern web applications in 2026.",
     url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400"
+    urlToImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&q=80"
   },
   {
     title: "The Future of Web Interfaces",
-    description: "Exploring CSS variables, Tailwind, and the evolution of UI/UX design.",
+    description: "Exploring CSS variables, Tailwind, and the evolution of UI/UX design trends.",
     url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1547658719-da2b51069d6e?w=400"
+    urlToImage: "https://images.unsplash.com/photo-1547658719-da2b51069d6e?w=400&q=80"
   },
   {
     title: "Artificial Intelligence in 2026",
-    description: "How machine learning models are reshaping the software development lifecycle.",
+    description: "How machine learning models are reshaping the software development lifecycle globally.",
     url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400"
+    urlToImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&q=80"
   },
   {
     title: "Mastering Cybersecurity Basics",
-    description: "Essential tips for developers to secure their applications against common threats.",
+    description: "Essential tips for developers to secure their applications against common vulnerabilities.",
     url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400"
+    urlToImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
   },
   {
     title: "Sustainable Tech Trends",
     description: "Why green energy and efficient code are becoming top priorities for major tech firms.",
     url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=400"
+    urlToImage: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=400&q=80"
   },
   {
     title: "Blockchain for Supply Chains",
     description: "A practical look at how decentralized ledgers help in identifying fake products.",
     url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1621416895569-26154d5d3ba7?w=400"
+    urlToImage: "https://images.unsplash.com/photo-1621416895569-26154d5d3ba7?w=400&q=80"
+  },
+  {
+    title: "Global Finance Markets",
+    description: "Analyzing the volatility in digital currencies and the shift in banking regulations.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80"
+  },
+  {
+    title: "The Science of Deep Learning",
+    description: "Decoding neural networks and their impact on data processing speed and accuracy.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1555949963-aa9fe0c977b8?w=400&q=80"
+  },
+  {
+    title: "Mental Health in Tech",
+    description: "Prioritizing developer well-being in a fast-paced and remote-work environment.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80"
+  },
+  {
+    title: "Next.js Performance Optimization",
+    description: "Techniques for rendering faster pages and reducing your bundle size.",
+    url: "#",
+    urlToImage: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=400&q=80"
   }
 ];
 
