@@ -1,72 +1,23 @@
 const { useState, useEffect } = React;
 
-// Fallback data for when the API limit is hit or blocked on GitHub
+
 const MOCK_DATA = [
-  {
-    title: "Understanding React Development",
-    description: "A deep dive into how components, state, and props drive modern web applications in 2026.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&q=80"
-  },
-  {
-    title: "The Future of Web Interfaces",
-    description: "Exploring CSS variables, Tailwind, and the evolution of UI/UX design trends.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1547658719-da2b51069d6e?w=400&q=80"
-  },
-  {
-    title: "Artificial Intelligence in 2026",
-    description: "How machine learning models are reshaping the software development lifecycle globally.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&q=80"
-  },
-  {
-    title: "Mastering Cybersecurity Basics",
-    description: "Essential tips for developers to secure their applications against common vulnerabilities.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
-  },
-  {
-    title: "Sustainable Tech Trends",
-    description: "Why green energy and efficient code are becoming top priorities for major tech firms.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=400&q=80"
-  },
-  {
-    title: "Blockchain for Supply Chains",
-    description: "A practical look at how decentralized ledgers help in identifying fake products.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1621416895569-26154d5d3ba7?w=400&q=80"
-  },
-  {
-    title: "Global Finance Markets",
-    description: "Analyzing the volatility in digital currencies and the shift in banking regulations.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80"
-  },
-  {
-    title: "The Science of Deep Learning",
-    description: "Decoding neural networks and their impact on data processing speed and accuracy.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1555949963-aa9fe0c977b8?w=400&q=80"
-  },
-  {
-    title: "Mental Health in Tech",
-    description: "Prioritizing developer well-being in a fast-paced and remote-work environment.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80"
-  },
-  {
-    title: "Next.js Performance Optimization",
-    description: "Techniques for rendering faster pages and reducing your bundle size.",
-    url: "#",
-    urlToImage: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=400&q=80"
-  }
+  { title: "Understanding React Development", description: "A deep dive into how components, state, and props work.", url: "#", urlToImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400" },
+  { title: "Next.js 15 Features", description: "Exploring server components and streaming capabilities.", url: "#", urlToImage: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=400" },
+  { title: "AI in Software Engineering", description: "How LLMs are changing the way developers debug.", url: "#", urlToImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400" },
+  { title: "Cybersecurity Basics", description: "Protecting your web applications from vulnerabilities.", url: "#", urlToImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400" },
+  { title: "The Future of Web 3.0", description: "Decentralized applications and user ownership.", url: "#", urlToImage: "https://images.unsplash.com/photo-1621416895569-26154d5d3ba7?w=400" }
+];
+
+const TRENDING_DATA = [
+  { title: "SpaceX Starship Launch", description: "Latest countdown and mission objectives.", url: "#", urlToImage: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=400" },
+  { title: "New Smartphone Launch", description: "All the leaked specs for the upcoming flagship.", url: "#", urlToImage: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400" },
+  { title: "Global Climate Summit", description: "Renewable energy policy shifts.", url: "#", urlToImage: "https://images.unsplash.com/photo-1473341617437-09edad10d144?w=400" }
 ];
 
 function App() {
   const [news, setNews] = useState([]);
-  // Load favorites from LocalStorage if they exist
+  
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem("favs");
     return saved ? JSON.parse(saved) : [];
@@ -74,11 +25,11 @@ function App() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [view, setView] = useState("home");
+  const [view, setView] = useState("home"); 
 
   const API_KEY = "7c1c91bedcc54850babad03ad4a4f1e3";
 
-  // Save favorites to LocalStorage whenever they change
+  
   useEffect(() => {
     localStorage.setItem("favs", JSON.stringify(favorites));
   }, [favorites]);
@@ -91,7 +42,7 @@ function App() {
 
     setLoading(true);
     setError("");
-
+    
     const query = view === "trending" ? "top-headlines?country=us" : "everything?q=india";
     const url = `https://newsapi.org/v2/${query}&apiKey=${API_KEY}`;
 
@@ -101,14 +52,14 @@ function App() {
         if (data.status === "ok" && data.articles.length > 0) {
           setNews(data.articles);
         } else {
-          // If API fails or returns no articles, show mock data
-          setNews(MOCK_DATA);
+         
+          setNews(view === "trending" ? TRENDING_DATA : MOCK_DATA);
         }
         setLoading(false);
       })
       .catch(() => {
-        // If network fails, show mock data
-        setNews(MOCK_DATA);
+       
+        setNews(view === "trending" ? TRENDING_DATA : MOCK_DATA);
         setLoading(false);
       });
   }, [view]);
@@ -176,11 +127,7 @@ function App() {
                     <button 
                       onClick={() => toggleFavorite(item)}
                       style={{
-                        background: 'none', 
-                        border: 'none', 
-                        cursor: 'pointer', 
-                        fontSize: '1.2rem',
-                        padding: '0',
+                        background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem', padding: '0',
                         color: isFav ? '#ef4444' : '#cbd5e1'
                       }}
                     >
